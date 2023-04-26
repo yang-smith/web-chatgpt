@@ -1,0 +1,122 @@
+code {
+    color: #cb3837;
+    margin: 0 6px;
+  }
+  
+  .container {
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .search-container {
+      width: 90%;
+      top: 60px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    .result-container {
+      width: 100%;
+      margin: 0 auto;
+    }
+    .back-container {
+      padding: 24px;
+      padding-top: 120px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .search-container {
+      width: 584px;
+      bottom: 60px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    .result-container {
+      margin: 0 auto;
+      margin-bottom: 20px;
+      width: 768px;
+    }
+    .back-container {
+      padding-bottom: 200px;
+    }
+  }
+  
+  .search-container {
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    border-color: rgba(223, 225, 229, 0);
+    display: flex;
+    height: 44px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    position: fixed;
+    z-index: 999;
+  }
+  
+  .input-left {
+    display: flex;
+    align-items: center;
+    padding-right: 13px;
+    margin-top: -5px;
+  }
+  .input-right {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: stretch;
+    flex-direction: row;
+    padding-left: 4px;
+  }
+  .input-right .btn {
+    flex: 1 0 auto;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    border: 0;
+    background: transparent;
+    outline: none;
+    padding: 0 8px;
+    width: 24px;
+    line-height: 44px;
+    color: #9aa0a6;
+  }
+  
+  .input-box {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+  }
+  
+  .input-box input {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.87);
+    word-wrap: break-word;
+    outline: none;
+    display: flex;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 16px;
+    flex: 100%;
+    font-family: arial, sans-serif;
+  }
+  
+  .ai-container,
+  .question-container {
+    border-radius: 8px;
+    padding: 12px;
+    word-break: break-all;
+    display: flex;
+  }
+  .ai-container {
+    background-color: rgba(247, 247, 248, 1);
+  }
+  .avater {
+    flex-basis: 42px;
+  }
+  .result {
+    flex: 1;
+  }
+  .result > div > p:first-child {
+    margin: 0;
+  }
+  
