@@ -1,4 +1,12 @@
 <template>
+  <div class="router">
+    <nav>
+      <router-link to="/">Home</router-link>
+      <router-link to="/register">Register</router-link>
+      <router-link to="/login">Login</router-link>
+    </nav>
+    <router-view />
+  </div>
     <div class="container">
       <div class="search-container">
         <div class="input-left"></div>

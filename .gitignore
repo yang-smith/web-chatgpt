@@ -3,6 +3,7 @@ node_modules
 /dist
 
 .env
+/backend/.env
 
 # local env files
 .env.local
