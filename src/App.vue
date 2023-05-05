@@ -69,8 +69,8 @@
         loading.value = true;
         // Replace this with an actual call to an AI API to get the answer
         const fakeAnswer = `AI's response to: ${userQuestion.value}`;
-        // const apiUrl = "http://38.60.204.205:1200/api/chart";
-        const apiUrl = "http://49.234.79.245:1200/api/chart";
+        const apiUrl = "http://38.60.204.205:1200/api/chart";
+        // const apiUrl = "http://49.234.79.245:1200/api/chart";
         fetch(apiUrl + `?content=${userQuestion.value}`)
           .then((res) => res.json())
           .then((response) => {
