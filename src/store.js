@@ -12,24 +12,18 @@ export default createStore({
   },
   actions: {
     async register({ commit }, { username, email, password }) {
-      try {
-        const response = await axios.post('/register', {
-          username,
-          email,
-          password,
-        });
+      return axios.post('http://49.234.79.245/:1200/api/register', {
+        username,
+        email,
+        password,
+      }).then(response => {
         commit('setUser', response.data);
-      } catch (error) {
-        console.error('Error registering:', error);
-      }
+      });
     },
     async login({ commit }, { email, password }) {
-      try {
-        const response = await axios.post('/login', { email, password });
+      return axios.post('http://49.234.79.245/:1200/api/login', { email, password }).then(response => {
         commit('setUser', response.data);
-      } catch (error) {
-        console.error('Error logging in:', error);
-      }
+      });
     },
   },
   modules: {},
