@@ -1,6 +1,7 @@
 import jwt
 from flask import current_app
 from app.models.user import User
+import time
 
 def generate_token(user, expires_in=86400):
     payload = {

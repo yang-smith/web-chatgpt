@@ -6,8 +6,10 @@ def test_app():
     app = create_app()
     app.config['TESTING'] = True
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-    with app.app_context():
-        yield app
+    with app.test_client() as test_client:
+        with app.app_context():
+            yield test_client
+
 
 @pytest.fixture(scope='module')
 def test_database(test_app):

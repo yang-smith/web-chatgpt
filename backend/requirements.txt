@@ -3,8 +3,10 @@ openai==0.8.0
 
 Flask==2.1.1
 Flask-SQLAlchemy==2.5.1
+SQLAlchemy==1.4.23
 PyMySQL==1.0.2
 PyJWT==2.3.0
+
 
 pytest==7.1.1
 pytest-flask==1.2.0
