@@ -12,7 +12,7 @@ export default createStore({
   },
   actions: {
     async register({ commit }, { username, email, password }) {
-      return axios.post('http://49.234.79.245/:1200/api/register', {
+      return axios.post('http://127.0.0.1:1200/api/register', {
         username,
         email,
         password,
@@ -21,7 +21,7 @@ export default createStore({
       });
     },
     async login({ commit }, { email, password }) {
-      return axios.post('http://49.234.79.245/:1200/api/login', { email, password }).then(response => {
+      return axios.post('http://127.0.0.1:1200/api/login', { email, password }).then(response => {
         commit('setUser', response.data);
       });
     },
