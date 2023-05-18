@@ -2,8 +2,10 @@
   <div class="router">
     <nav>
       <router-link to="/">Home</router-link>
-      <router-link to="/UserRegister">Register</router-link>
-      <router-link to="/Userlogin">Login</router-link>
+      <div class="auth-links">
+        <router-link to="/UserRegister">Register</router-link>
+        <router-link to="/Userlogin">Login</router-link>
+      </div>
     </nav>
     <router-view />
   </div>
@@ -102,39 +104,6 @@
   
   <style scoped>
 
-@import "./index.css";/* Place your CSS styles here */
-  /* .container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  .search-container {
-    display: flex;
-    margin-bottom: 2rem;
-  }
-  input {
-    flex-grow: 1;
-    padding: 0.5rem;
-    margin-right: 0.5rem;
-  }
-  button {
-    padding: 0.5rem 1rem;
-  }
-  .qa-list {
-    display: flex;
-    flex-direction: column;
-  }
-  .qa-item {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-  }
-  .question {
-    font-weight: bold;
-  }
-  .answer {
-    margin-left: 1rem;
-  } */
+@import "./index.css";
   </style>
   

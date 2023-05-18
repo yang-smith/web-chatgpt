@@ -42,7 +42,7 @@ def login():
     user = User.query.filter_by(email=email).first()
     if user is not None and user.check_password(password):
         token = generate_token(user)
-        return jsonify({"token": token})
+        return jsonify({"token": token, "message": "登录成功！"}), 200
     else:
-        return make_response(jsonify({"error": "Invalid email or password"}), 401)
+        return make_response(jsonify({"error": "无效的电子邮件或密码"}), 401)
 

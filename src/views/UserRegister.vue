@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useStore } from 'vuex';
 
 export default {
@@ -46,6 +46,12 @@ export default {
         error.value = 'Error registering: ' + err.message;
       });
     };
+
+    watch(() => store.state.isRegistered, (newValue) => {
+      if (newValue) {
+        showModal.value = false;
+      }
+    });
 
     const closeModal = () => {
       showModal.value = false;

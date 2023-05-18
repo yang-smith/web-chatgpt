@@ -7,6 +7,38 @@ code {
     width: 100%;
   }
   
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.auth-links {
+  display: flex;
+}
+
+.auth-links a {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.auth-links a:hover {
+  background: #45a049;
+}
+
+  
   @media screen and (max-width: 768px) {
     .search-container {
       width: 90%;

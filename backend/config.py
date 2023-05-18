@@ -9,6 +9,6 @@ class Config:
     db_connection = os.environ.get("DB_CONNECTION")
     api_key = os.environ.get("API_KEY")
     
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'your_secret_key'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'mysql+pymysql://username:password@localhost/db_name'
+    SECRET_KEY = os.environ.get('SECRET_KEY') 
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DB_CONNECTION")
     SQLALCHEMY_TRACK_MODIFICATIONS = False

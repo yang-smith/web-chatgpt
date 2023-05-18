@@ -15,4 +15,7 @@ def create_app(config_class=Config):
     from app.api import api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
 
+    with app.app_context():
+        db.create_all()  # 创建数据库表
+        
     return app
