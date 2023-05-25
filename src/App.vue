@@ -1,7 +1,7 @@
 <template>
   <div class="router">
     <nav>
-      <router-link to="/">Home</router-link>
+      <!-- <router-link to="/">Home</router-link> -->
       <div class="auth-links">
         <router-link to="/UserRegister">Register</router-link>
         <router-link to="/Userlogin">Login</router-link>

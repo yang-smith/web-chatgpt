@@ -5,6 +5,7 @@ import router from './router';
 export default createStore({
   state: {
     user: null,
+    balance: 0,
     isLoggedIn: false,
     isRegistered: false,
     chatHistory: [],
@@ -41,6 +42,17 @@ export default createStore({
         commit('setUser', response.data);
       });
     },
+    async updateBalance({ commit, state }, new_balance) {
+      return axios.post('http://49.234.79.245:1200/api/update_balance', {
+          token: state.user.token,
+          new_balance
+      }).then(response => {
+          state.user.balance = new_balance;
+      }).catch(error => {
+          console.error('Update balance failed: ', error);
+      });
+    },
+  
     async submitQuestion({ commit, state }, question) {
         commit('addChatMessage', { question, answer: null });
         const apiUrl = "http://38.60.204.205:1200/api/chart";

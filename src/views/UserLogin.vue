@@ -34,6 +34,10 @@ export default {
 
     const login = () => {
       store.dispatch('login', { email: email.value, password: password.value })
+        .then(() => {
+          // 在成功登录后跳转到 userChat 页面
+          router.push('/userChat');
+        })
         .catch(err => {
           error.value = 'Error logging in: ' + err.message;
         });

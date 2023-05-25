@@ -20,3 +20,13 @@ def decode_token(token):
         return None
     except jwt.exceptions.InvalidTokenError:
         return None
+
+def validate_token(token):
+    try:
+        payload = jwt.decode(token, current_app
+        .config['SECRET_KEY'], algorithms=['HS256'])
+        return payload
+    except jwt.exceptions.ExpiredSignatureError:
+        return None
+    except jwt.exceptions.InvalidTokenError:
+        return None
