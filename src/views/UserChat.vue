@@ -1,5 +1,10 @@
 <template>
       <div class="container">
+        <div class="user-info" v-if="userInfo">
+        <h2>User Info:</h2>
+        <p>Email: {{ userInfo.email }}</p>
+        <p>Balance: {{ userInfo.balance }}</p>
+        </div>
         <div class="search-container">
           <div class="input-left"></div>
           <div class="input-box">
@@ -45,7 +50,7 @@
 </template>
     
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useStore } from "vuex"; 
 import LoadingIndicator from '../components/LoadingIndicator.vue';
 import AiAvater from '../components/AiAvater.vue';
@@ -65,6 +70,7 @@ export default {
         store.dispatch('submitQuestion', userQuestion.value);
         userQuestion.value = "";
       }
+      console.log(store.state.user);
     };
 
     const markdownToHtml = (markdown) => {
@@ -72,7 +78,9 @@ export default {
       return md.render(markdown || '');
     };
 
-    return { userQuestion, submitQuestion, qaList: store.state.chatHistory, markdownToHtml};
+    const userInfo = computed(() => store.state.user);
+
+    return { userInfo, userQuestion, submitQuestion, qaList: store.state.chatHistory, markdownToHtml};
     },
 };
 </script>

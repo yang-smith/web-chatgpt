@@ -42,11 +42,11 @@ export default createStore({
         commit('setUser', response.data);
       });
     },
-    async updateBalance({ commit, state }, new_balance) {
+    async updateBalance({ state }, new_balance) {
       return axios.post('http://49.234.79.245:1200/api/update_balance', {
           token: state.user.token,
           new_balance
-      }).then(response => {
+      }).then(() => {
           state.user.balance = new_balance;
       }).catch(error => {
           console.error('Update balance failed: ', error);

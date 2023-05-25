@@ -23,6 +23,7 @@
 <script>
 import { ref, watch } from 'vue';
 import { useStore } from 'vuex';
+import router from '../router'; 
 
 export default {
   setup() {

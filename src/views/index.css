@@ -7,7 +7,15 @@ code {
     width: 100%;
   }
   
-
+  .user-info {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
 nav {
   display: flex;
   justify-content: space-between;
