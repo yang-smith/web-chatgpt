@@ -5,7 +5,6 @@ import router from './router';
 export default createStore({
   state: {
     user: null,
-    balance: 0,
     isLoggedIn: false,
     isRegistered: false,
     chatHistory: [],
@@ -53,17 +52,19 @@ export default createStore({
       });
     },
   
-    async submitQuestion({ commit, state }, question) {
+    async submitQuestion({ commit, state, dispatch }, question) {
         commit('addChatMessage', { question, answer: null });
         const apiUrl = "http://38.60.204.205:1200/api/chart";
         return axios.get(apiUrl, { params: { content: question } })
         .then(response => {
           state.chatHistory[state.chatHistory.length - 1].answer = response.data.message || "";
-          // commit('updateChatMessage', { index: state.chatHistory.length - 1, answer: response.data.message || "" });
+          return dispatch('updateBalance', state.user.balance - 0.01);
+        })
+        .then(() => {
+            state.user.balance = state.user.balance - 0.01;
         })
         .catch(() => {
           state.chatHistory[state.chatHistory.length - 1].answer = "请求出错！";
-          // commit('updateChatMessage', { index: state.chatHistory.length - 1, answer: "请求出错！" });
         });
       },
   },

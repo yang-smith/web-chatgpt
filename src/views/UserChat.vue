@@ -65,7 +65,12 @@ export default {
     const userQuestion = ref("");
 
     const submitQuestion =  () => {
+      store.dispatch('updateBalance', 10);
       if( store.getters.lastAnswerIsNull) return;
+      if (store.state.user.balance < 0.01) {
+        store.commit('addChatMessage', { question: 'System Message', answer: '余额不足' });
+        return;
+      }
       if (userQuestion.value.trim() !== "") {
         store.dispatch('submitQuestion', userQuestion.value);
         userQuestion.value = "";
