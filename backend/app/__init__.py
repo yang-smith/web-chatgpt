@@ -7,7 +7,7 @@ db = SQLAlchemy()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
-    CORS(app)  # 添加这一行以允许跨域请求
+    CORS(app, resources={r"/api/*": {"origins": "*"}})  # 允许所有源访问API路由
     app.config.from_object(config_class)
 
     db.init_app(app)
