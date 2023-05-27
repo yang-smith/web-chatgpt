@@ -7,6 +7,7 @@ class User(db.Model):
     password_hash = db.Column(db.String(128))
     email = db.Column(db.String(120), index=True, unique=True)
     balance = db.Column(db.Float, default=0.0)
+    topup_records = db.relationship('TopUpRecord', backref='user', lazy='dynamic') 
     
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
