@@ -9,13 +9,45 @@ code {
   
   .user-info {
     position: fixed;
-    right: 10px;
+    right: 10px; /* change the position to the left top corner */
     top: 10px;
-    background-color: #f5f5f5;
-    padding: 10px;
-    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1); /* a darker color with some transparency */
+    padding: 20px; /* larger padding */
+    border-radius: 10px; /* larger border radius */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* add a subtle border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* add some shadow */
+    font-size: 16px; /* larger font size */
+    color: #333; /* darker text color */
   }
   
+  .topup-button button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 20px;
+    color: #fff;
+    background-color: #4caf50;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .topup-button button:hover {
+    background-color: #45a049;
+  } 
+
+  .details-button {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 4px 6px;
+    color: #fff;
+    background-color: #4caf50;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .details-button:hover {
+    background-color: #45a049;
+  }
+
 nav {
   display: flex;
   justify-content: space-between;

@@ -1,10 +1,20 @@
 <template>
       <div class="container">
-        <div class="user-info" v-if="userInfo">
-        <h2>User Info:</h2>
-        <p>Email: {{ userInfo.email }}</p>
-        <p>Balance: {{ userInfo.balance }}</p>
-        </div>
+
+          <div class="user-info" v-if="userInfo">
+            <p>{{ userInfo.email }}
+              <button @click="showDetails = !showDetails" class="details-button">
+                {{ showDetails ? '▲' : '▼'  }}
+              </button>
+            </p>
+            <div v-show="showDetails">
+              <p>余额: {{ userInfo.balance }}</p>
+              <router-link to="/UserTopup" class="topup-button">
+                <button type="button">充值</button>
+              </router-link>
+            </div>
+          </div>
+
         <div class="search-container">
           <div class="input-left"></div>
           <div class="input-box">
@@ -63,9 +73,10 @@ export default {
     setup() {
     const store = useStore();
     const userQuestion = ref("");
+    const showDetails = ref(false);
 
     const submitQuestion =  () => {
-      store.dispatch('updateBalance', 10);
+  
       if( store.getters.lastAnswerIsNull) return;
       if (store.state.user.balance < 0.01) {
         store.commit('addChatMessage', { question: 'System Message', answer: '余额不足' });
@@ -85,7 +96,7 @@ export default {
 
     const userInfo = computed(() => store.state.user);
 
-    return { userInfo, userQuestion, submitQuestion, qaList: store.state.chatHistory, markdownToHtml};
+    return { userInfo, userQuestion, submitQuestion, qaList: store.state.chatHistory, markdownToHtml, showDetails};
     },
 };
 </script>

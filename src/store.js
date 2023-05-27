@@ -60,11 +60,21 @@ export default createStore({
           state.chatHistory[state.chatHistory.length - 1].answer = response.data.message || "";
           return dispatch('updateBalance', state.user.balance - 0.01);
         })
-        .then(() => {
-            state.user.balance = state.user.balance - 0.01;
-        })
+        // .then(() => {
+        //     state.user.balance = state.user.balance - 0.01;
+        // })
         .catch(() => {
           state.chatHistory[state.chatHistory.length - 1].answer = "请求出错！";
+        });
+      },
+      async topUp({ state }, { amount }) {
+        return axios.post('http://49.234.79.245:1200/api/top_up', {
+            token: state.user.token,
+            amount
+        }).then(() => {
+            state.user.balance += amount;
+        }).catch(error => {
+            console.error('Top up failed: ', error);
         });
       },
   },
