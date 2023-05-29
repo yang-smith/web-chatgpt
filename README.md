@@ -2,6 +2,8 @@
 
 这是一个全栈应用，包括前端和后端。前端使用 Vue.js 构建，后端使用 Python Flask 构建。这是一个基于 OpenAI 的 ChatGPT的聊天应用。
 
+![image](https://github.com/yang-smith/web-chatgpt/tree/main/img/home.png)
+
 ## 功能介绍
 
 - 基于 ChatGPT 的聊天功能
