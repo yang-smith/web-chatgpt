@@ -29,7 +29,6 @@ git clone https://github.com/yourusername/your-repository.git
 2. 安装前端依赖
 
 ```bash
-cd frontend
 npm install
 ```
 
