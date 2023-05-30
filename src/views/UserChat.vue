@@ -66,7 +66,7 @@ import LoadingIndicator from '../components/LoadingIndicator.vue';
 import AiAvater from '../components/AiAvater.vue';
 import UserAvater from '../components/UserAvater.vue';
 import MarkdownIt from 'markdown-it';
-
+import router from '../router'; 
 
 export default {
     components: { AiAvater, UserAvater, LoadingIndicator },
@@ -76,7 +76,11 @@ export default {
     const showDetails = ref(false);
 
     const submitQuestion =  () => {
-  
+        // Check if user is logged in
+      if (!store.state.isLoggedIn) {
+        router.push('/UserLogin');
+        return;
+      }
       if( store.getters.lastAnswerIsNull) return;
       if (store.state.user.balance < 0.01) {
         store.commit('addChatMessage', { question: 'System Message', answer: '余额不足' });

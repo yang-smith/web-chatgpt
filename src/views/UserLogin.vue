@@ -3,6 +3,7 @@
     <div class="modal-mask" v-if="showModal">
       <div class="login">
         <h1>Login</h1>
+        <button class="close-button" type="button" @click="closeModal">X</button>
         <form @submit.prevent="login">
           <div>
             <label for="email">Email:</label>
@@ -12,8 +13,10 @@
             <label for="password">Password:</label>
             <input type="password" id="password" v-model="password" />
           </div>
-          <button type="submit">Login</button>
-          <button type="button" @click="closeModal">Close</button>
+          <button type="submit">Login/登录</button>
+          <router-link to="/Userregister">
+            <button type="button">Register/注册</button>
+          </router-link>
         </form>
       </div>
     </div>
@@ -74,12 +77,25 @@ export default {
 }
 
 .login {
+  position: relative;
   background: #f5f5f5;
   padding: 20px;
   border-radius: 5px;
   width: 300px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   border: 1px solid #ccc;
+}
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: auto;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: inline-block;
+  color: #4CAF50;
 }
 
 .login h1 {
@@ -103,7 +119,7 @@ export default {
   width: 100%;
 }
 
-.login button {
+.login form button {
   background-color: #4CAF50;
   color: white;
   padding: 15px 20px;

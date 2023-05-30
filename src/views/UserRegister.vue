@@ -3,6 +3,7 @@
     <div class="modal-mask" v-if="showModal">
       <div class="register">
         <h2>Register</h2>
+        <button class="close-button" type="button" @click="closeModal">X</button>
         <form @submit.prevent="registerUser">
           <div>
             <label for="username">Username:</label>
@@ -17,7 +18,6 @@
             <input type="password" id="password" v-model="password" required />
           </div>
           <button type="submit">Register</button>
-          <button type="button" @click="closeModal">Close</button>
         </form>
       </div>
     </div>
@@ -78,6 +78,7 @@ export default {
 }
 
 .register {
+  position: relative;
   background: #f5f5f5;
   padding: 20px;
   border-radius: 5px;
@@ -106,8 +107,19 @@ export default {
   border: 1px solid #ccc;
   width: 100%;
 }
-
-.register button {
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: auto;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: inline-block;
+  color: #4CAF50;
+}
+.register form button {
   background-color: #4CAF50;
   color: white;
   padding: 15px 20px;
