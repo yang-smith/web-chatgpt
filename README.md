@@ -23,7 +23,7 @@
 1. 克隆仓库到本地
 
 ```bash
-git clone https://github.com/yourusername/your-repository.git
+git clone https://github.com/yang-smith/web-chatgpt.git
 ```
 
 2. 安装前端依赖
@@ -35,11 +35,13 @@ npm install
 3. 安装后端依赖
 
 ```bash
-cd ../backend
-pip install -r requirements.txt
+pip install -r ./backend/requirements.txt
 ```
+4. 修改参数
 
-4. 启动前端服务器
+ 修改backend/.envexample中的参数，将之替换为你自己的API，并修改.envexample名称为.env
+
+5. 启动前端服务器
 
 ```bash
 npm run serve
@@ -48,7 +50,7 @@ npm run serve
 5. 启动后端服务器
 
 ```bash
-python run.py
+python ./backend/run.py
 ```
 
 ## 使用指南
