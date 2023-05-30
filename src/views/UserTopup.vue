@@ -3,8 +3,8 @@
       <h1>充值</h1>
       <form @submit.prevent="topUp">
         <div>
-          <label for="amount">金额:</label>
-          <input type="number" id="amount" min="1" step="1" v-model.number="amount" />
+          <label for="amount">金额:    </label>
+          <input type="number" id="amount" min="1" step="1" max="25" v-model.number="amount" /> 元
         </div>
         <div class="qrcode">
           <img src="../../img/qrcode.jpg" alt="QR Code">
@@ -83,7 +83,7 @@
     padding: 10px;
     border-radius: 3px;
     border: 1px solid #ccc;
-    width: 100%;
+    width: 30%;
   }
   
   .topup button {

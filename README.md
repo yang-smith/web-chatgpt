@@ -4,6 +4,8 @@
 
 ![image text](https://github.com/yang-smith/web-chatgpt/blob/main/img/home.png)
 
+试用：http://49.234.79.245:8080/UserChat
+
 ## 功能介绍
 
 - 基于 ChatGPT 的聊天功能
