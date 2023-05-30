@@ -18,6 +18,7 @@
             <input type="password" id="password" v-model="password" required />
           </div>
           <button type="submit">Register</button>
+          <p class="error" v-if="error">{{ error }}</p>
         </form>
       </div>
     </div>
@@ -43,7 +44,13 @@ export default {
         email: email.value,
         password: password.value,
       }).catch(err => {
-        error.value = 'Error registering: ' + err.message;
+        if (err.response.data.error === "Email already exists") {
+          error.value = "这个电子邮件已经被注册了";
+        } else if (err.response.data.error === "Username already exists") {
+          error.value = "这个用户名已经被使用了";
+        } else {
+          error.value = '注册过程中出现了一些错误: ' + err.message;
+        }
       });
     };
 
@@ -133,7 +140,9 @@ export default {
 .register button:hover {
   opacity:1;
 }
-
+.error {
+  color: red;
+}
 .modal-enter {
   opacity: 0;
 }

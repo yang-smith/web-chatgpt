@@ -17,6 +17,7 @@
           <router-link to="/Userregister">
             <button type="button">Register/注册</button>
           </router-link>
+          <p class="error" v-if="error">{{ error }}</p>
         </form>
       </div>
     </div>
@@ -133,7 +134,9 @@ export default {
 .login button:hover {
   opacity:1;
 }
-
+.error {
+  color: red;
+}
 .modal-enter {
   opacity: 0;
 }
