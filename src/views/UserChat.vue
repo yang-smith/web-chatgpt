@@ -83,7 +83,7 @@ export default {
       }
       if( store.getters.lastAnswerIsNull) return;
       if (store.state.user.balance < 0.01) {
-        store.commit('addChatMessage', { question: 'System Message', answer: '余额不足' });
+        store.commit('addChatMessage', { question: 'System Message', answer: '余额不足。一个问题约0.01元。注意：这只是一个实验性项目，搞一块钱玩玩可以，不要多充，我无法保证稳定性。' });
         return;
       }
       if (userQuestion.value.trim() !== "") {
